@@ -20,7 +20,6 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-# System deps for cryptography wheels (most have prebuilt wheels; keep minimal)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates curl && rm -rf /var/lib/apt/lists/*
 
@@ -30,11 +29,6 @@ RUN pip install -r requirements.txt
 COPY backend/app ./app
 COPY --from=frontend /web/dist ./frontend_dist
 
-# SQLite data volume mount point (Railway: attach a volume here)
-RUN mkdir -p /data
-VOLUME ["/data"]
-
 EXPOSE 8000
 
-# Use PORT env on Railway
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
