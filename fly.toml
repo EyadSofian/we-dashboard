@@ -1,15 +1,15 @@
-# fly.toml app configuration file generated for app-ancient-wildflower-9214 on 2026-05-13T14:28:09Z
+# fly.toml app configuration file generated for we-dashboard on 2026-05-13T14:34:19Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'app-ancient-wildflower-9214'
+app = 'we-dashboard'
 primary_region = 'iad'
 
 [build]
 
 [http_service]
-  internal_port = 8080
+  internal_port = 8000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
