@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Local DB & secrets
+.env
+*.db
+*.sqlite
+data/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

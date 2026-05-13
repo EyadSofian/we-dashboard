@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(124,92,255,0.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(34,211,238,0.10), transparent 55%),
+    #0b0d12;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #232a39; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #2e3648; }
+
+.card {
+  @apply bg-panel border border-border rounded-2xl shadow-card;
+}
+.input {
+  @apply bg-panel2 border border-border rounded-lg px-3 py-2 outline-none
+         focus:border-accent focus:ring-2 focus:ring-accent/30 transition;
+}
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border
+         bg-panel2 hover:bg-panel transition text-sm font-medium;
+}
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg
+         bg-accent hover:bg-accent/90 text-white text-sm font-medium
+         shadow-[0_8px_24px_-12px_rgba(124,92,255,0.7)];
+}
+.btn-danger {
+  @apply inline-flex items-center gap-2 px-3 py-2 rounded-lg
+         border border-bad/30 bg-bad/10 hover:bg-bad/20 text-bad text-sm font-medium;
+}
+.kbd {
+  @apply px-1.5 py-0.5 text-xs rounded border border-border bg-panel2 text-slate-400;
+}
