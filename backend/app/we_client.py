@@ -15,6 +15,8 @@ from dataclasses import dataclass
 from typing import Optional
 import httpx
 
+from .config import get_settings
+
 logger = logging.getLogger(__name__)
 
 BASE = "https://api-my.te.eg"
@@ -88,11 +90,13 @@ class WEClient:
         self.timeout = timeout
 
     async def fetch_quota(self) -> QuotaSnapshot:
+        proxy_url = get_settings().WE_PROXY_URL or None
         async with httpx.AsyncClient(
             timeout=self.timeout,
             headers={"User-Agent": USER_AGENT},
             follow_redirects=False,
             http2=False,
+            proxy=proxy_url,
         ) as client:
             # Step 1: bootstrap session cookies
             r1 = await client.post(EP_SYS, headers=_common_headers(), json={})

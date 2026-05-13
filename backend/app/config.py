@@ -25,6 +25,10 @@ class Settings(BaseSettings):
     # Set to empty string to skip.
     ACCOUNTS_SEED: str = ""
 
+    # Proxy for geo-restricted WE API (api-my.te.eg requires Egyptian IP)
+    # Example: "http://user:pass@your-egyptian-server:8080" or "socks5://host:1080"
+    WE_PROXY_URL: str = ""
+
     # CORS
     ALLOWED_ORIGINS: str = "*"
 
